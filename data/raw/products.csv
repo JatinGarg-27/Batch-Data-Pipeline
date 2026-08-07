@@ -1,0 +1,33 @@
+product_id,product_name,category,unit_price
+1,Wireless Earbuds,Electronics,1622.74
+2,Smart Watch,Electronics,2976.79
+3,Bluetooth Speaker,Electronics,3857.68
+4,Power Bank,Electronics,1803.04
+5,USB-C Cable,Electronics,3276.42
+6,Cotton T-Shirt,,3944.87
+7,Denim Jacket,Apparel,447.63
+8,Running Shoes,Apparel,4156.04
+9,Wool Sweater,Apparel,3398.43
+10,Formal Shirt,Apparel,578.23
+11,Non-Stick Pan,Home & Kitchen,3945.72
+12,Blender,Home & Kitchen,3168.91
+13,Table Lamp,Home & Kitchen,350.06
+14,Storage Box,Home & Kitchen,1426.15
+15,Ceramic Mug Set,Home & Kitchen,783.23
+16,Data Engineering Basics,Books,2611.79
+17,Python Crash Course,Books,889.43
+18,SQL for Beginners,Books,3938.15
+19,Clean Code,Books,1197.61
+20,Atomic Habits,Books,772.56
+21,Yoga Mat,Sports,1254.8
+22,Dumbbell Set,Sports,190.88
+23,Cricket Bat,Sports,4070.26
+24,Football,Sports,837.19
+25,Resistance Bands,Sports,1653.21
+26,Face Serum,Beauty,2929.38
+27,Sunscreen SPF50,Beauty,1237.93
+28,Shampoo,Beauty,1016.59
+29,Lip Balm,Beauty,2251.96
+30,Face Wash,Beauty,2637.86
+5,Smart Watch (reissue),Electronics,-999
+4,Power Bank,Electronics,1803.04
