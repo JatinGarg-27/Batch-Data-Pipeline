@@ -1,33 +1,38 @@
 """
-Transformation stage.
+Stage 4 - Transform.
 
-Runs sql/transformations.sql against the loaded relational tables to
-build analysis-ready tables (joins, aggregations, window functions).
-Runs after load, since it reads from the tables load.py populates.
+Runs every sql/marts/*.sql file in name order against the star schema. The
+SQL lives in .sql files (not Python strings) so it can be read, reviewed and
+run on its own in any MySQL client. Each file DROPs and re-CREATEs its
+tables, so this stage is idempotent.
 """
 
+from __future__ import annotations
+
 import logging
-import os
-import sqlite3
+import re
+import time
+
+from pipeline import config
+from pipeline.db import connect, run_sql_file
 
 logger = logging.getLogger(__name__)
-
-TRANSFORM_SQL_PATH = os.path.join(os.path.dirname(__file__), "..", "sql", "transformations.sql")
-
-ANALYTICS_TABLES = [
-    "analytics_order_line_items",
-    "analytics_revenue_by_category",
-    "analytics_customer_ltv",
-    "analytics_monthly_revenue_trend",
-    "analytics_top_products_by_category",
-]
+MARTS_DIR = config.SQL_DIR / "marts"
 
 
-def run_transformations(conn: sqlite3.Connection, sql_path: str = TRANSFORM_SQL_PATH) -> None:
-    with open(sql_path, "r", encoding="utf-8") as f:
-        conn.executescript(f.read())
-    conn.commit()
-
-    for table in ANALYTICS_TABLES:
-        count = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
-        logger.info("Built %-34s %5d rows", table, count)
+def run() -> dict:
+    conn = connect(autocommit=True)
+    built = {}
+    try:
+        with conn.cursor() as cur:
+            for f in sorted(MARTS_DIR.glob("*.sql")):
+                t0 = time.perf_counter()
+                run_sql_file(conn, f)
+                for table in re.findall(r"CREATE TABLE (\w+)", f.read_text()):
+                    cur.execute(f"SELECT COUNT(*) FROM {table}")
+                    built[table] = cur.fetchone()[0]
+                    logger.info("  built %-34s %10s rows  (%s, %.1fs)", table, f"{built[table]:,}",
+                                f.name, time.perf_counter() - t0)
+    finally:
+        conn.close()
+    return {"tables": len(built), "rows": sum(built.values())}
