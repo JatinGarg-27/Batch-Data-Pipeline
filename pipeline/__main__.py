@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import resource
 import sys
 import time
 from datetime import datetime
@@ -91,10 +92,14 @@ def main(argv=None) -> int:
         logger.info("  %-10s %8.1fs  %s", stage, t["seconds"],
                     {k: v for k, v in t.items() if k != "seconds"})
     logger.info("  %-10s %8.1fs", "TOTAL", total)
+    # ru_maxrss is in KiB on Linux: the peak memory of this Python process
+    peak_mb = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)
+    logger.info("  peak memory (RSS) of the pipeline process: %s MB", peak_mb)
     with open(config.LOG_DIR / "runs.jsonl", "a") as f:
         f.write(json.dumps({"at": datetime.now().isoformat(timespec="seconds"),
                             "stage": args.stage, "incremental": args.incremental,
-                            "total_seconds": total, "stages": timings}) + "\n")
+                            "total_seconds": total, "peak_rss_mb": peak_mb,
+                            "stages": timings}) + "\n")
     return 0
 
 
