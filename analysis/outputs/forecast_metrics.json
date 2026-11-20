@@ -20,8 +20,8 @@
     "moving_avg_28d_mape_sale_days": 46.4,
     "moving_avg_28d_mape_regular_days": 71.7,
     "regression_mape": 53.2,
-    "regression_mape_sale_days": 82.7,
-    "regression_mape_regular_days": 45.8
+    "regression_mape_sale_days": 82.3,
+    "regression_mape_regular_days": 45.9
   },
   {
     "category": "Topwear",

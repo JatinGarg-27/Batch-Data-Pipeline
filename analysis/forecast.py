@@ -9,7 +9,7 @@ Set-up (fixed BEFORE looking at holdout results, so the comparison is honest):
   * baselines  = (a) seasonal naive: same weekday last week, i.e. repeat the
                      final 7 training days
                  (b) 28-day moving average: flat line at the last 28-day mean
-  * model      = linear regression on log(units) with: trend (days),
+  * model      = linear regression on log(1 + units) with: trend (days),
                  day-of-week dummies and a sale-day flag. Trained on the last
                  365 training days. The sale flag is legitimate at forecast
                  time because the sale calendar is planned in advance.
@@ -58,8 +58,9 @@ def features(dates: pd.DatetimeIndex, sale: np.ndarray, t0: pd.Timestamp) -> np.
 def fit_predict(train: pd.DataFrame, future_dates, future_sale) -> np.ndarray:
     t0 = train.index.min()
     X = features(train.index, train.is_sale_day.values, t0)
-    beta, *_ = np.linalg.lstsq(X, np.log(train.units.values), rcond=None)
-    return np.exp(features(future_dates, future_sale, t0) @ beta)
+    # log1p/expm1 rather than log/exp: a day with 0 units (possible at small --rows) stays finite
+    beta, *_ = np.linalg.lstsq(X, np.log1p(train.units.values), rcond=None)
+    return np.expm1(features(future_dates, future_sale, t0) @ beta)
 
 
 def main() -> None:
@@ -146,7 +147,7 @@ def main() -> None:
         lines.append(f"| {r['category']} | {r['seasonal_naive_mape']}% | {r['moving_avg_28d_mape']}% | "
                      f"**{r['regression_mape']}%** | {r['regression_mape_sale_days']}% | "
                      f"{r['seasonal_naive_mape_sale_days']}% | {r['regression_mape_regular_days']}% |")
-    lines += ["", "Model: least-squares regression on log(units) with a linear trend, day-of-week dummies and "
+    lines += ["", "Model: least-squares regression on log(1 + units) with a linear trend, day-of-week dummies and "
               "a sale-day flag, trained on the 365 days before the holdout. The forward 30-day forecast "
               "(`analysis/outputs/forecast_next_30_days.csv`) assumes no sale in that window."]
     (ROOT / "reports").mkdir(exist_ok=True)
