@@ -11,7 +11,7 @@ import sqlite3
 
 import pandas as pd
 
-from src.db import apply_schema, get_connection
+from pipeline.db import apply_schema, get_connection
 
 logger = logging.getLogger(__name__)
 

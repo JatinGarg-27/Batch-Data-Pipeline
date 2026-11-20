@@ -7,17 +7,17 @@ mirror real-world ETL design:
     ingestion -> transformation (clean/validate) -> load -> analytics transform
 
 Usage:
-    python -m src.pipeline
+    python -m pipeline.pipeline
 """
 
 import logging
 import time
 
-from src.clean import clean_all
-from src.db import get_connection
-from src.ingest import ingest_raw_data
-from src.load import load_all
-from src.transform import run_transformations
+from pipeline.clean import clean_all
+from pipeline.db import get_connection
+from pipeline.ingest import ingest_raw_data
+from pipeline.load import load_all
+from pipeline.transform import run_transformations
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger(__name__)

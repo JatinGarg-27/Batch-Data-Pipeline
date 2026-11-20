@@ -1,5 +1,20 @@
+# Python
 __pycache__/
 *.pyc
 .venv/
 venv/
-output/*.db
+.pytest_cache/
+
+# Secrets: never commit real credentials (copy .env.example -> .env)
+.env
+
+# Generated data (reproducible from scripts/generate_data.py with a fixed seed)
+data/raw/*
+data/staging/*
+data/clean/*
+data/rejected/*
+!data/**/.gitkeep
+
+# Run artefacts
+logs/
+output/
