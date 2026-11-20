@@ -234,16 +234,21 @@ def simulate_customers(rng, n, acq_weight, thin_weight):
     days = np.full(owner.size, -1)
     pending = np.arange(owner.size)
     wmax = thin_weight.max()
-    for _ in range(60):
+    w_future = thin_weight.mean()       # assumed demand weight for days after END
+    for _ in range(80):
         if pending.size == 0:
             break
         o = owner[pending]
         cand = first[o] + 7 + rng.exponential(tau[o]).astype(int)
         inside = cand < D
-        acc = np.zeros(pending.size, bool)
-        acc[inside] = rng.random(inside.sum()) < thin_weight[cand[inside]] / wmax
-        days[pending[acc]] = cand[acc]
-        pending = pending[inside & ~acc]                       # censored slots are dropped
+        u = rng.random(pending.size)
+        # Thinning must treat days after END like any other day (accept with
+        # their own weight) -- otherwise every retry is a fresh chance to fall
+        # off the end, and later cohorts would lose far more repeat orders.
+        acc_in = inside & (u < thin_weight[np.minimum(cand, D - 1)] / wmax)
+        acc_out = ~inside & (u < w_future / wmax)              # accepted, but after END: censored
+        days[pending[acc_in]] = cand[acc_in]
+        pending = pending[~(acc_in | acc_out)]
     keep = days >= 0
     order_cust = np.concatenate([np.where(purchases)[0], owner[keep]])
     order_day = np.concatenate([first[purchases], days[keep]])
