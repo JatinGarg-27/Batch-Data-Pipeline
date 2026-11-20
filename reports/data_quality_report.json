@@ -1,0 +1,106 @@
+{
+  "customers": {
+    "rows_in": 289800,
+    "rows_out": 288501,
+    "rows_rejected": 1299,
+    "rejected_by_rule": {
+      "missing_or_invalid_customer_id": 145,
+      "duplicate_customer_id": 1154
+    },
+    "repaired_by_rule": {
+      "missing_email_kept_as_null": 5769,
+      "malformed_email_set_null": 848,
+      "city_standardised": 23082,
+      "signup_date_dd_mm_yyyy_normalised": 71979,
+      "bad_signup_date_set_null": 575
+    }
+  },
+  "products": {
+    "rows_in": 20060,
+    "rows_out": 19940,
+    "rows_rejected": 120,
+    "rejected_by_rule": {
+      "duplicate_product_id": 60,
+      "invalid_mrp": 60
+    },
+    "repaired_by_rule": {
+      "category_standardised": 1199,
+      "missing_brand_set_unknown": 100,
+      "cost_price_imputed_category_median_ratio": 100
+    }
+  },
+  "promotions": {
+    "rows_in": 13,
+    "rows_out": 12,
+    "rows_rejected": 1,
+    "rejected_by_rule": {
+      "duplicate_promotion_id": 1
+    },
+    "repaired_by_rule": {
+      "promo_type_standardised": 1
+    }
+  },
+  "sessions": {
+    "rows_in": 11349034,
+    "rows_out": 11309431,
+    "rows_rejected": 39603,
+    "rejected_by_rule": {
+      "duplicate_session_id": 33945,
+      "unparseable_session_date": 5658
+    },
+    "repaired_by_rule": {
+      "channel_standardised": 374993,
+      "invalid_channel_set_unknown": 56541,
+      "orphan_customer_id_set_null": 14311
+    }
+  },
+  "orders": {
+    "rows_in": 625078,
+    "rows_out": 614514,
+    "rows_rejected": 10564,
+    "rejected_by_rule": {
+      "duplicate_order_id": 4961,
+      "missing_customer_id": 1237,
+      "orphan_customer_id": 2210,
+      "unparseable_order_date": 1231,
+      "order_date_out_of_range": 310,
+      "invalid_order_status": 615
+    },
+    "repaired_by_rule": {
+      "order_date_dd_mm_yyyy_normalised": 184582,
+      "order_status_standardised": 41043,
+      "orphan_session_id_set_null": 329,
+      "coupon_code_standardised": 6123
+    }
+  },
+  "order_items": {
+    "rows_in": 1008000,
+    "rows_out": 982081,
+    "rows_rejected": 25919,
+    "rejected_by_rule": {
+      "duplicate_order_item_id": 8000,
+      "parent_order_rejected": 9038,
+      "orphan_order_id": 1500,
+      "parent_product_rejected": 2477,
+      "orphan_product_id": 1481,
+      "non_positive_quantity": 973,
+      "missing_selling_price": 981,
+      "non_positive_selling_price": 979,
+      "selling_price_above_mrp": 490
+    },
+    "repaired_by_rule": {}
+  },
+  "returns": {
+    "rows_in": 137666,
+    "rows_out": 133362,
+    "rows_rejected": 4304,
+    "rejected_by_rule": {
+      "duplicate_return_id": 685,
+      "parent_order_item_rejected": 2536,
+      "orphan_order_item_id": 411,
+      "return_before_order": 404,
+      "refund_exceeds_line_value": 268
+    },
+    "repaired_by_rule": {}
+  }
+}

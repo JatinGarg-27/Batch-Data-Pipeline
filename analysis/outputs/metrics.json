@@ -1,0 +1,604 @@
+{
+  "conversion_by_channel_pct": {
+    "social": 2.46,
+    "paid_search": 4.59,
+    "organic_search": 6.15,
+    "referral": 6.66,
+    "email": 8.69,
+    "direct": 10.25
+  },
+  "sessions_by_channel": {
+    "social": 3678630,
+    "paid_search": 2254818,
+    "organic_search": 2390207,
+    "referral": 457519,
+    "email": 841012,
+    "direct": 1630704
+  },
+  "repeat_90d_by_acq_channel_pct": {
+    "social": 29.4,
+    "paid_search": 40.1,
+    "organic_search": 45.6,
+    "referral": 49.2,
+    "direct": 51.7
+  },
+  "new_customers_by_acq_channel": {
+    "social": 43677,
+    "paid_search": 49033,
+    "organic_search": 60798,
+    "referral": 16282,
+    "direct": 32479
+  },
+  "overall_conversion_pct": 5.43,
+  "avg_m1_retention_pct": 22.5,
+  "avg_m3_retention_pct": 16.5,
+  "category": {
+    "Beauty": {
+      "net_revenue": 67136684.93,
+      "contribution_pct": 6.59,
+      "margin_pct": 39.46,
+      "margin_after_returns_pct": 38.55,
+      "return_rate_pct": 2.4
+    },
+    "Sportswear": {
+      "net_revenue": 67409741.36,
+      "contribution_pct": 6.61,
+      "margin_pct": 39.84,
+      "margin_after_returns_pct": 35.66,
+      "return_rate_pct": 10.8
+    },
+    "Accessories": {
+      "net_revenue": 105731804.86,
+      "contribution_pct": 10.37,
+      "margin_pct": 39.41,
+      "margin_after_returns_pct": 37.02,
+      "return_rate_pct": 5.5
+    },
+    "Dresses": {
+      "net_revenue": 113985756.84,
+      "contribution_pct": 11.18,
+      "margin_pct": 38.76,
+      "margin_after_returns_pct": 26.83,
+      "return_rate_pct": 31.8
+    },
+    "Bottomwear": {
+      "net_revenue": 134724861.74,
+      "contribution_pct": 13.22,
+      "margin_pct": 39.61,
+      "margin_after_returns_pct": 32.75,
+      "return_rate_pct": 15.6
+    },
+    "Topwear": {
+      "net_revenue": 161474816.98,
+      "contribution_pct": 15.84,
+      "margin_pct": 39.71,
+      "margin_after_returns_pct": 35.52,
+      "return_rate_pct": 10.7
+    },
+    "Ethnic Wear": {
+      "net_revenue": 183036396.03,
+      "contribution_pct": 17.96,
+      "margin_pct": 38.57,
+      "margin_after_returns_pct": 32.83,
+      "return_rate_pct": 15.4
+    },
+    "Footwear": {
+      "net_revenue": 185726028.09,
+      "contribution_pct": 18.22,
+      "margin_pct": 39.51,
+      "margin_after_returns_pct": 30.51,
+      "return_rate_pct": 21.6
+    }
+  },
+  "n_brands": 46,
+  "top10_brand_share_pct": 63.3,
+  "top_brands": [
+    {
+      "brand": "Urban Thread",
+      "contribution_pct": 18.78
+    },
+    {
+      "brand": "Kaveri",
+      "contribution_pct": 9.75
+    },
+    {
+      "brand": "Northpeak",
+      "contribution_pct": 7.04
+    },
+    {
+      "brand": "Saffron Lane",
+      "contribution_pct": 6.9
+    },
+    {
+      "brand": "Monsoon Edit",
+      "contribution_pct": 5.11
+    }
+  ],
+  "sale_events": [
+    {
+      "promo_code": "RDS24",
+      "event_days": 4,
+      "revenue_uplift_pct": 102.4,
+      "incremental_revenue": 1498903.0,
+      "margin_pct_during": 36.1,
+      "margin_pct_baseline": 40.8,
+      "discount_pct_during": 45.3,
+      "incremental_margin": 471740.0,
+      "margin_uplift_pct": 79.0
+    },
+    {
+      "promo_code": "EORS24S",
+      "event_days": 6,
+      "revenue_uplift_pct": 211.1,
+      "incremental_revenue": 10140005.0,
+      "margin_pct_during": 28.3,
+      "margin_pct_baseline": 42.0,
+      "discount_pct_during": 51.3,
+      "incremental_margin": 2208991.0,
+      "margin_uplift_pct": 109.4
+    },
+    {
+      "promo_code": "BFD24",
+      "event_days": 8,
+      "revenue_uplift_pct": 318.6,
+      "incremental_revenue": 27646419.0,
+      "margin_pct_during": 22.6,
+      "margin_pct_baseline": 42.0,
+      "discount_pct_during": 54.8,
+      "incremental_margin": 4579142.0,
+      "margin_uplift_pct": 125.7
+    },
+    {
+      "promo_code": "EORS24W",
+      "event_days": 6,
+      "revenue_uplift_pct": 138.1,
+      "incremental_revenue": 12930994.0,
+      "margin_pct_during": 28.4,
+      "margin_pct_baseline": 42.2,
+      "discount_pct_during": 51.2,
+      "incremental_margin": 2371677.0,
+      "margin_uplift_pct": 60.0
+    },
+    {
+      "promo_code": "RDS25",
+      "event_days": 4,
+      "revenue_uplift_pct": 76.7,
+      "incremental_revenue": 4351411.0,
+      "margin_pct_during": 37.6,
+      "margin_pct_baseline": 42.4,
+      "discount_pct_during": 44.2,
+      "incremental_margin": 1362099.0,
+      "margin_uplift_pct": 56.7
+    },
+    {
+      "promo_code": "EORS25S",
+      "event_days": 6,
+      "revenue_uplift_pct": 207.0,
+      "incremental_revenue": 16328184.0,
+      "margin_pct_during": 28.3,
+      "margin_pct_baseline": 42.2,
+      "discount_pct_during": 51.2,
+      "incremental_margin": 3527515.0,
+      "margin_uplift_pct": 106.0
+    },
+    {
+      "promo_code": "BFD25",
+      "event_days": 8,
+      "revenue_uplift_pct": 288.9,
+      "incremental_revenue": 31346833.0,
+      "margin_pct_during": 22.9,
+      "margin_pct_baseline": 42.0,
+      "discount_pct_during": 54.7,
+      "incremental_margin": 5122929.0,
+      "margin_uplift_pct": 112.5
+    },
+    {
+      "promo_code": "EORS25W",
+      "event_days": 6,
+      "revenue_uplift_pct": 146.1,
+      "incremental_revenue": 17005674.0,
+      "margin_pct_during": 28.5,
+      "margin_pct_baseline": 42.2,
+      "discount_pct_during": 51.2,
+      "incremental_margin": 3261919.0,
+      "margin_uplift_pct": 66.4
+    }
+  ],
+  "sale_vs_regular": {
+    "regular day": {
+      "days": 683,
+      "avg_daily_revenue": 1226389.0,
+      "avg_daily_orders": 689.0,
+      "aov": 1778.77,
+      "discount_pct_of_mrp": 39.7,
+      "margin_pct": 42.1,
+      "avg_daily_margin": 515871.0
+    },
+    "sale day": {
+      "days": 48,
+      "avg_daily_revenue": 3783382.0,
+      "avg_daily_orders": 2139.0,
+      "aov": 1768.4,
+      "discount_pct_of_mrp": 52.4,
+      "margin_pct": 26.6,
+      "avg_daily_margin": 1006615.0
+    }
+  },
+  "returning_revenue_pct_by_month": {
+    "2024-01": 0.0,
+    "2024-02": 22.79,
+    "2024-03": 31.43,
+    "2024-04": 36.82,
+    "2024-05": 41.12,
+    "2024-06": 42.27,
+    "2024-07": 51.03,
+    "2024-08": 52.76,
+    "2024-09": 52.68,
+    "2024-10": 48.45,
+    "2024-11": 57.56,
+    "2024-12": 56.17,
+    "2025-01": 60.36,
+    "2025-02": 61.55,
+    "2025-03": 59.71,
+    "2025-04": 59.58,
+    "2025-05": 58.43,
+    "2025-06": 56.0,
+    "2025-07": 59.54,
+    "2025-08": 59.6,
+    "2025-09": 54.42,
+    "2025-10": 59.62,
+    "2025-11": 60.0,
+    "2025-12": 58.16
+  },
+  "total_net_revenue": 1019226090.83,
+  "total_orders": 573593,
+  "aov": 1776.92,
+  "margin_pct": 39.31,
+  "discount_pct_of_mrp": 42.42,
+  "buying_customers": 241658,
+  "orders_per_customer": 2.374,
+  "monthly": [
+    {
+      "month_start": "2024-01",
+      "net_revenue": 13830595.51,
+      "margin_pct": 39.9,
+      "discount_pct_of_mrp": 41.81,
+      "aov": 1815.04,
+      "orders_per_customer": 1.109,
+      "mom_growth_pct": NaN,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-02",
+      "net_revenue": 14534760.23,
+      "margin_pct": 41.57,
+      "discount_pct_of_mrp": 40.18,
+      "aov": 1800.64,
+      "orders_per_customer": 1.135,
+      "mom_growth_pct": 5.09,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-03",
+      "net_revenue": 18158289.48,
+      "margin_pct": 41.67,
+      "discount_pct_of_mrp": 40.08,
+      "aov": 1692.13,
+      "orders_per_customer": 1.155,
+      "mom_growth_pct": 24.93,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-04",
+      "net_revenue": 20457294.55,
+      "margin_pct": 41.76,
+      "discount_pct_of_mrp": 39.98,
+      "aov": 1692.92,
+      "orders_per_customer": 1.149,
+      "mom_growth_pct": 12.66,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-05",
+      "net_revenue": 24727218.16,
+      "margin_pct": 42.03,
+      "discount_pct_of_mrp": 39.7,
+      "aov": 1707.92,
+      "orders_per_customer": 1.171,
+      "mom_growth_pct": 20.87,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-06",
+      "net_revenue": 39667535.83,
+      "margin_pct": 36.83,
+      "discount_pct_of_mrp": 44.71,
+      "aov": 1700.79,
+      "orders_per_customer": 1.23,
+      "mom_growth_pct": 60.42,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-07",
+      "net_revenue": 30242534.07,
+      "margin_pct": 42.19,
+      "discount_pct_of_mrp": 39.58,
+      "aov": 1768.98,
+      "orders_per_customer": 1.161,
+      "mom_growth_pct": -23.76,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-08",
+      "net_revenue": 30384828.0,
+      "margin_pct": 42.54,
+      "discount_pct_of_mrp": 39.26,
+      "aov": 1791.24,
+      "orders_per_customer": 1.159,
+      "mom_growth_pct": 0.47,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-09",
+      "net_revenue": 32128823.77,
+      "margin_pct": 41.89,
+      "discount_pct_of_mrp": 39.88,
+      "aov": 1763.48,
+      "orders_per_customer": 1.146,
+      "mom_growth_pct": 5.74,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-10",
+      "net_revenue": 72050595.36,
+      "margin_pct": 32.02,
+      "discount_pct_of_mrp": 48.56,
+      "aov": 1828.74,
+      "orders_per_customer": 1.248,
+      "mom_growth_pct": 124.26,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-11",
+      "net_revenue": 47636299.83,
+      "margin_pct": 42.06,
+      "discount_pct_of_mrp": 39.72,
+      "aov": 1890.25,
+      "orders_per_customer": 1.188,
+      "mom_growth_pct": -33.88,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2024-12",
+      "net_revenue": 61324757.15,
+      "margin_pct": 37.31,
+      "discount_pct_of_mrp": 44.27,
+      "aov": 1805.63,
+      "orders_per_customer": 1.223,
+      "mom_growth_pct": 28.74,
+      "yoy_growth_pct": NaN
+    },
+    {
+      "month_start": "2025-01",
+      "net_revenue": 46379391.7,
+      "margin_pct": 41.25,
+      "discount_pct_of_mrp": 40.54,
+      "aov": 1840.38,
+      "orders_per_customer": 1.176,
+      "mom_growth_pct": -24.37,
+      "yoy_growth_pct": 235.34
+    },
+    {
+      "month_start": "2025-02",
+      "net_revenue": 34534979.06,
+      "margin_pct": 42.41,
+      "discount_pct_of_mrp": 39.38,
+      "aov": 1813.81,
+      "orders_per_customer": 1.132,
+      "mom_growth_pct": -25.54,
+      "yoy_growth_pct": 137.6
+    },
+    {
+      "month_start": "2025-03",
+      "net_revenue": 39063497.79,
+      "margin_pct": 42.4,
+      "discount_pct_of_mrp": 39.37,
+      "aov": 1715.57,
+      "orders_per_customer": 1.15,
+      "mom_growth_pct": 13.11,
+      "yoy_growth_pct": 115.13
+    },
+    {
+      "month_start": "2025-04",
+      "net_revenue": 37833693.68,
+      "margin_pct": 42.24,
+      "discount_pct_of_mrp": 39.46,
+      "aov": 1712.09,
+      "orders_per_customer": 1.134,
+      "mom_growth_pct": -3.15,
+      "yoy_growth_pct": 84.94
+    },
+    {
+      "month_start": "2025-05",
+      "net_revenue": 40734019.66,
+      "margin_pct": 42.19,
+      "discount_pct_of_mrp": 39.51,
+      "aov": 1698.95,
+      "orders_per_customer": 1.138,
+      "mom_growth_pct": 7.67,
+      "yoy_growth_pct": 64.73
+    },
+    {
+      "month_start": "2025-06",
+      "net_revenue": 60251707.65,
+      "margin_pct": 36.65,
+      "discount_pct_of_mrp": 44.8,
+      "aov": 1692.51,
+      "orders_per_customer": 1.182,
+      "mom_growth_pct": 47.91,
+      "yoy_growth_pct": 51.89
+    },
+    {
+      "month_start": "2025-07",
+      "net_revenue": 42894669.85,
+      "margin_pct": 42.18,
+      "discount_pct_of_mrp": 39.54,
+      "aov": 1769.36,
+      "orders_per_customer": 1.136,
+      "mom_growth_pct": -28.81,
+      "yoy_growth_pct": 41.84
+    },
+    {
+      "month_start": "2025-08",
+      "net_revenue": 41728210.79,
+      "margin_pct": 42.16,
+      "discount_pct_of_mrp": 39.52,
+      "aov": 1769.57,
+      "orders_per_customer": 1.132,
+      "mom_growth_pct": -2.72,
+      "yoy_growth_pct": 37.33
+    },
+    {
+      "month_start": "2025-09",
+      "net_revenue": 74275023.24,
+      "margin_pct": 31.01,
+      "discount_pct_of_mrp": 49.39,
+      "aov": 1730.06,
+      "orders_per_customer": 1.175,
+      "mom_growth_pct": 78.0,
+      "yoy_growth_pct": 131.18
+    },
+    {
+      "month_start": "2025-10",
+      "net_revenue": 60885321.5,
+      "margin_pct": 41.75,
+      "discount_pct_of_mrp": 40.07,
+      "aov": 1844.34,
+      "orders_per_customer": 1.177,
+      "mom_growth_pct": -18.03,
+      "yoy_growth_pct": -15.5
+    },
+    {
+      "month_start": "2025-11",
+      "net_revenue": 59668045.83,
+      "margin_pct": 41.98,
+      "discount_pct_of_mrp": 39.72,
+      "aov": 1877.18,
+      "orders_per_customer": 1.163,
+      "mom_growth_pct": -2.0,
+      "yoy_growth_pct": 25.26
+    },
+    {
+      "month_start": "2025-12",
+      "net_revenue": 75833998.14,
+      "margin_pct": 37.02,
+      "discount_pct_of_mrp": 44.52,
+      "aov": 1796.76,
+      "orders_per_customer": 1.19,
+      "mom_growth_pct": 27.09,
+      "yoy_growth_pct": 23.66
+    }
+  ],
+  "h2_revenue": {
+    "2024": 273767838.18,
+    "2025": 355285269.35
+  },
+  "h2_yoy_growth_pct": 29.8,
+  "fy_revenue": {
+    "2024": 405143531.94,
+    "2025": 614082558.89
+  },
+  "size_reason_share_of_returns_pct": {
+    "Accessories": 0.0,
+    "Beauty": 0.0,
+    "Bottomwear": 64.8,
+    "Dresses": 65.1,
+    "Ethnic Wear": 0.0,
+    "Footwear": 65.1,
+    "Sportswear": 65.0,
+    "Topwear": 65.6
+  },
+  "size_reason_share_all_pct": 54.6,
+  "return_rate_by_payment_pct": {
+    "UPI": 13.7,
+    "wallet": 13.7,
+    "COD": 16.4,
+    "card": 13.7
+  },
+  "sale_days_share": {
+    "rev": 17.8,
+    "gm": 12.1,
+    "sale_days": 48.0,
+    "days": 731.0
+  },
+  "highest_return_sub_categories": [
+    {
+      "name": "Bodycon Dresses",
+      "return_rate_pct": 35.6,
+      "margin_after_returns_pct": 25.74,
+      "margin_pct": 39.05
+    },
+    {
+      "name": "Maxi Dresses",
+      "return_rate_pct": 31.8,
+      "margin_after_returns_pct": 26.76,
+      "margin_pct": 38.62
+    },
+    {
+      "name": "Heels",
+      "return_rate_pct": 28.8,
+      "margin_after_returns_pct": 29.78,
+      "margin_pct": 41.22
+    },
+    {
+      "name": "A-Line Dresses",
+      "return_rate_pct": 28.7,
+      "margin_after_returns_pct": 27.76,
+      "margin_pct": 38.63
+    }
+  ],
+  "refunds_total": 162488046.6,
+  "refund_pct_of_revenue": 15.94,
+  "coupons": {
+    "NO_COUPON": {
+      "orders": 459099,
+      "net_revenue": 790604358.0,
+      "aov": 1722.08,
+      "coupon_cost": 0.0,
+      "coupon_cost_pct": 0.0,
+      "margin_pct": 40.73
+    },
+    "NEW15": {
+      "orders": 89349,
+      "net_revenue": 165610000.0,
+      "aov": 1853.52,
+      "coupon_cost": 19358426.0,
+      "coupon_cost_pct": 10.47,
+      "margin_pct": 34.25
+    },
+    "STYLE10": {
+      "orders": 15718,
+      "net_revenue": 36923287.0,
+      "aov": 2349.11,
+      "coupon_cost": 3026137.0,
+      "coupon_cost_pct": 7.57,
+      "margin_pct": 38.03
+    },
+    "FEST24": {
+      "orders": 3918,
+      "net_revenue": 10985077.0,
+      "aov": 2803.75,
+      "coupon_cost": 1752198.0,
+      "coupon_cost_pct": 13.76,
+      "margin_pct": 29.58
+    },
+    "FEST25": {
+      "orders": 5509,
+      "net_revenue": 15103369.0,
+      "aov": 2741.58,
+      "coupon_cost": 2447345.0,
+      "coupon_cost_pct": 13.94,
+      "margin_pct": 30.77
+    }
+  }
+}

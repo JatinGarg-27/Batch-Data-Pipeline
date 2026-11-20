@@ -1,0 +1,38 @@
+[
+  {
+    "category": "Footwear",
+    "seasonal_naive_mape": 20.7,
+    "seasonal_naive_mape_sale_days": 68.5,
+    "seasonal_naive_mape_regular_days": 8.7,
+    "moving_avg_28d_mape": 24.5,
+    "moving_avg_28d_mape_sale_days": 70.0,
+    "moving_avg_28d_mape_regular_days": 13.1,
+    "regression_mape": 7.9,
+    "regression_mape_sale_days": 7.7,
+    "regression_mape_regular_days": 7.9
+  },
+  {
+    "category": "Ethnic Wear",
+    "seasonal_naive_mape": 63.8,
+    "seasonal_naive_mape_sale_days": 49.0,
+    "seasonal_naive_mape_regular_days": 67.5,
+    "moving_avg_28d_mape": 66.7,
+    "moving_avg_28d_mape_sale_days": 46.4,
+    "moving_avg_28d_mape_regular_days": 71.7,
+    "regression_mape": 53.2,
+    "regression_mape_sale_days": 82.7,
+    "regression_mape_regular_days": 45.8
+  },
+  {
+    "category": "Topwear",
+    "seasonal_naive_mape": 20.8,
+    "seasonal_naive_mape_sale_days": 69.2,
+    "seasonal_naive_mape_regular_days": 8.7,
+    "moving_avg_28d_mape": 23.7,
+    "moving_avg_28d_mape_sale_days": 69.8,
+    "moving_avg_28d_mape_regular_days": 12.2,
+    "regression_mape": 34.7,
+    "regression_mape_sale_days": 30.5,
+    "regression_mape_regular_days": 35.7
+  }
+]

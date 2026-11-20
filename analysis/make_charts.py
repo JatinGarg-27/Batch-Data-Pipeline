@@ -284,6 +284,33 @@ def main() -> None:
     m["h2_yoy_growth_pct"] = round(float(100 * (h2[2025] / h2[2024] - 1)), 1)
     fy = mon.groupby(mon.month_start.dt.year).net_revenue.sum()
     m["fy_revenue"] = {int(k): float(v) for k, v in fy.items()}
+    # Return reasons are not modelled in the warehouse (fact keeps is_returned /
+    # refund only), so read them from the validated clean layer.
+    clean = ROOT / "data" / "clean"
+    rets = pd.read_parquet(clean / "returns", columns=["order_item_id", "return_reason"])
+    items = pd.read_parquet(clean / "order_items", columns=["order_item_id", "product_id"])
+    prods = pd.read_parquet(clean / "products", columns=["product_id", "category"])
+    r = rets.merge(items, on="order_item_id").merge(prods, on="product_id")
+    size = r.assign(size=r.return_reason.str.startswith("Size")).groupby("category")["size"].mean()
+    m["size_reason_share_of_returns_pct"] = (100 * size).round(1).to_dict()
+    m["size_reason_share_all_pct"] = round(float(100 * r.return_reason.str.startswith("Size").mean()), 1)
+    pay = q("""SELECT payment_method, ROUND(100 * SUM(is_returned) / COUNT(*), 1) AS return_rate_pct
+               FROM fact_order_items
+               WHERE order_status <> 'cancelled'
+                 AND order_date_key <= (SELECT MAX(order_date_key) - 100 FROM fact_order_items)
+               GROUP BY payment_method""")
+    m["return_rate_by_payment_pct"] = pay.set_index("payment_method").return_rate_pct.astype(float).to_dict()
+    share = q("""SELECT ROUND(100 * SUM(CASE WHEN is_sale_day = 1 THEN net_revenue END) / SUM(net_revenue), 1) rev,
+                        ROUND(100 * SUM(CASE WHEN is_sale_day = 1 THEN gross_margin END) / SUM(gross_margin), 1) gm,
+                        SUM(is_sale_day) sale_days, COUNT(*) days FROM mart_daily_sales""").iloc[0]
+    m["sale_days_share"] = {k: float(v) for k, v in share.items()}
+    sub = q("SELECT name, return_rate_pct, margin_after_returns_pct, margin_pct FROM mart_product_performance "
+            "WHERE level = 'sub_category' ORDER BY return_rate_pct DESC LIMIT 4")
+    m["highest_return_sub_categories"] = sub.to_dict(orient="records")
+    refunds = q("SELECT SUM(refund_amount) refunds, SUM(net_revenue) rev FROM fact_order_items "
+                "WHERE order_status <> 'cancelled'").iloc[0]
+    m["refunds_total"] = float(refunds.refunds)
+    m["refund_pct_of_revenue"] = round(float(100 * refunds.refunds / refunds.rev), 2)
     cpn = q("SELECT * FROM mart_coupon_performance")
     m["coupons"] = cpn.set_index("coupon_code").to_dict(orient="index")
     (OUT_DIR / "metrics.json").write_text(json.dumps(m, indent=2, default=str))
