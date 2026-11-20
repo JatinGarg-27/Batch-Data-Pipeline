@@ -12,12 +12,25 @@ Data-quality bookkeeping shared by the cleaning stage.
 
 from __future__ import annotations
 
+import ctypes
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+
+def release_memory() -> None:
+    """Ask glibc to hand freed heap pages back to the OS between chunks.
+    Without it, resident memory reflects the largest chunk ever seen plus
+    fragmentation, not what the pipeline is actually holding. No-op off Linux."""
+    if sys.platform.startswith("linux"):
+        try:
+            ctypes.CDLL("libc.so.6").malloc_trim(0)
+        except OSError:
+            pass
 
 
 class IdSet:

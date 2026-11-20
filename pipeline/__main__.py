@@ -83,6 +83,12 @@ def main(argv=None) -> int:
                  "levelname": "ERROR"}))
             return 1
         timings[stage] = {"seconds": round(time.perf_counter() - t0, 2), **(stats or {})}
+        try:  # running peak after each stage shows which stage drives memory (Unix only)
+            import resource
+            timings[stage]["peak_rss_mb_so_far"] = round(
+                resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)
+        except ImportError:
+            pass
         logger.info("=== %s finished in %.1fs ===", stage, timings[stage]["seconds"])
     total = round(time.perf_counter() - t_all, 2)
 

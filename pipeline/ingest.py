@@ -24,6 +24,7 @@ from pathlib import Path
 import pandas as pd
 
 from pipeline import config
+from pipeline.quality import release_memory
 from pipeline.schemas import RAW_SCHEMAS, TABLE_ORDER
 
 logger = logging.getLogger(__name__)
@@ -64,6 +65,8 @@ def ingest_table(table: str, raw_dir: Path, staging_dir: Path, chunk_size: int) 
         chunk.insert(0, "_source_row", range(total + 2, total + 2 + len(chunk)))
         chunk.to_parquet(out_dir / f"part-{i:05d}.parquet", index=False)
         total += len(chunk)
+        del chunk
+        release_memory()
     logger.info("  ingested %-12s %12s rows in %d chunk(s)", table, f"{total:,}", i + 1)
     return total
 
