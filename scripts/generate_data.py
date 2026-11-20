@@ -184,9 +184,11 @@ def make_products(rng, n_products):
     brand = np.array(BRANDS)[brand_idx]
     name = pd.Series(brand) + " " + pd.Series(adjective) + " " + pd.Series(sub_category)
 
-    # Long tail: lognormal per-SKU popularity x brand popularity x category demand,
-    # damped by price (a Rs 12,000 lehenga sells fewer units than a Rs 600 tee).
-    popularity = (rng.lognormal(0, 1.1, n_products) * brand_pop[brand_idx]
+    # Long tail: lognormal per-SKU popularity x category demand, damped by price
+    # (a Rs 12,000 lehenga sells fewer units than a Rs 600 tee). Brand popularity
+    # already shows up through how many SKUs each brand has, so it is not applied
+    # a second time here (doing so gave one brand >50% of revenue).
+    popularity = (rng.lognormal(0, 1.1, n_products)
                   * np.array([CATEGORY_DEMAND[c] for c in category])
                   * (mrp / 1000.0) ** -0.8)
     return_rate = np.array([rows[i][5] for i in sub_idx])
