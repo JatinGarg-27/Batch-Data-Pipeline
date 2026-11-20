@@ -375,8 +375,9 @@ def run(staging_dir: Path = config.STAGING_DIR, clean_dir: Path = config.CLEAN_D
         rejected_dir: Path = config.REJECTED_DIR, reports_dir: Path = config.REPORTS_DIR,
         max_date: pd.Timestamp | None = None) -> DQReport:
     max_date = max_date or pd.Timestamp(date.today())
-    shutil.rmtree(rejected_dir, ignore_errors=True)
-    rejected_dir.mkdir(parents=True)
+    rejected_dir.mkdir(parents=True, exist_ok=True)
+    for old in rejected_dir.glob("*_rejected.csv"):   # keep .gitkeep, replace last run's files
+        old.unlink()
     report, ctx = DQReport(rejected_dir), Context(max_date)
     for table in TABLE_ORDER:
         out_dir = clean_dir / table
